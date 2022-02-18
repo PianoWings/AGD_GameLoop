@@ -8,39 +8,61 @@
 //    The body of the constructor must:
 //      * Load the texture file (mushroom50-50.png) into the sf::Texture member variable using the loadFromFile function of the sf::Texture class.
 //      * Set the sf::Texture variable as the texture of the sf::Sprite member (using the sf::Sprite::setTexture(sf::Texture) function).
+Game::Game() : window{ "window title", sf::Vector2u(800,600) }, movement{ 4.0f,4.0f }
+{
+	texture.loadFromFile("../GameLoop/mushroom50-50.png");
+	sprite.setTexture(texture);
 
+
+}
 
 
 
 // 2.  Define an empty default destructor.
+Game::~Game()
+{
 
-
-
+}
 
 // MEMBER FUNCTIONS:
 
 // 3. For handling the input. This logic will not handle any input yet, so define an empty handling function.
 
+void Game::userInput()
+{
 
+}
 
 // 4. For updating tha game state:
 //	  a) Call the private function of this class that executes the logic (mushroom movement).
 //    b) Call the update function of the window (the window does handle input in the update function. This is not really orthodox, 
 //       but it will work for now).
-
+void Game::update()
+{
+	moving();
+	getwindow()->update();
+}
 
 
 // 5. Function for rendering the game:
 //    a) Our window object offers functionality for clearing the screen. Call the method that starts the draw on the window member first.
 //    b) Draw the mushroom on screen, by calling the draw function in window that receives a reference to a sf::Drawable& reference.
 //    c) Our window also offers functionality for displaying all that has been drawn since the last clear. Call the method that ends the draw on the window now.
+void Game::Render()
+{
+	getwindow()->beginDraw();
+	getwindow()->draw(sprite);
+	getwindow()->endDraw();
+}
+
 
 
 
 // 6. Define the function that returns a pointer to the window member variable of this class.
-
-
-
+Window* Game::getwindow()
+{
+	return &window;
+}
 
 
 // 7. Define the function for updating the movement of the mushroom.
@@ -63,11 +85,12 @@
 //    bouncesTop <- (mushroom.yPosition < 0 AND mushroom.movement.y < 0)
 //    if bouncesBottom OR bouncesTop
 //       { change sign of mushroom.movement.y }
-//
-//    # Set the position of the mushroom as its current position + movement.
-//    mushroom.xPosition <- mushroom.xPosition + movement.x 
-//    mushroom.yPosition <- mushroom.yPosition + movement.y
+void Game::moving()
+{
+	sf::Vector2u windowSize = getwindow()->getWindowSize();
+	sf::Vector2u textureSize = texture.getSize();
 
-
-
+	float xRightLimit = windowSize.x - textureSize.x;
+	float yBottomLimit = windowSize.y - textureSize.y;
+}
 

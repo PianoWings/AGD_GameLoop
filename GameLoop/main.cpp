@@ -15,7 +15,6 @@ int main()
 {
     //Declare an object of type "Game"
 
-
     // Simple game loop. Iterate _while_ the window of the gmae is not "done".
     // Three steps per iteration:
     //   1. Ask the game instance to handle the input.

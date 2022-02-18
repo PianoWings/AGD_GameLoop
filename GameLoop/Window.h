@@ -39,18 +39,19 @@ public:
 	// A group of setter and getter functions for the state of this window:
 	bool isWindowDone() const { return isDone; }
 	bool isWindowFullscreen() const { return isFullscreen; }
+	bool isWindowOpen() const { return isDone; }
 	inline void setSize(const sf::Vector2u& size) { windowSize = size; }
 	const sf::Vector2u& getWindowSize() const { return windowSize; }
 	inline void setTitle(const std::string& t) { windowTitle = t; }
 	const std::string& getTitle() const { return windowTitle; }
+
+private:
 
 	//Destroys this window. Private so only this object can manage how to do that.
 	void destroy();
 
 	//Creates this window.  Private so only this object can manage how to do that.
 	void create();
-
-private:
 
 	// Twe window itself where we draw stuff.
 	sf::RenderWindow window;
@@ -66,5 +67,6 @@ private:
 
 	// Flag that indicates if the window is currently full screen or not (false by default).
 	bool isFullscreen;
-};
 
+	//bool isOpen;
+};
