@@ -40,6 +40,9 @@ void Game::userInput()
 void Game::update()
 {
 	moving();
+	// <FEEDBACK> You don't need to call window(), you can simply use window.update().
+	// In fact, it's better NOT to call a function if you can avoid it, as it's less efficient than using the variable directly.
+	// This also applies to the function Render() below.
 	getwindow()->update();
 }
 
@@ -90,7 +93,7 @@ void Game::moving()
 	sf::Vector2u windowSize = getwindow()->getWindowSize();
 	sf::Vector2u textureSize = texture.getSize();
 
-	float xRightLimit = windowSize.x - textureSize.x;
-	float yBottomLimit = windowSize.y - textureSize.y;
+	float xRightLimit = windowSize.x - textureSize.x; // <FEEDBACK> Fix this warning.
+	float yBottomLimit = windowSize.y - textureSize.y; // <FEEDBACK> Fix this warning.
 }
 

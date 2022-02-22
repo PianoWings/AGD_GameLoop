@@ -17,6 +17,8 @@ public:
 	void update();
 
 	// Declare a function for rendering the game to the screen. Returns void and receives no parameters.
+	// <FEEDBACK> Use a consistent naming style. If all names start with lower case, keep it through the code.
+	// Use the camel case starting with a lower case letter (https://en.wikipedia.org/wiki/Camel_case)
 	void Render();
 
 	// Declare a function for returning a pointer to the "window" member of this class. Receives no parameters.

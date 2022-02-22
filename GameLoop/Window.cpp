@@ -1,5 +1,6 @@
 #include "Window.h"
 
+// <FEEDBACK> Use intializers list for this constructor
 Window::Window() // : <FILL THIS INITIALIZATION LIST with default values for isDone and isFullScreen>
 {
 	// Initialize the window calling the setup() method with a title and a size.
@@ -9,6 +10,7 @@ Window::Window() // : <FILL THIS INITIALIZATION LIST with default values for isD
 	setup("Window", sf::Vector2u(640, 480));
 }
 
+// <FEEDBACK> Use intializers list for this constructor
 Window::Window(const std::string& title, const sf::Vector2u& size) // : <FILL THIS INITIALIZATION LIST with default values for isDone and isFullScreen>
 {
 	// Redirect the call to the setup() function with the title and the size.
@@ -45,6 +47,7 @@ void Window::create()
 	// Create a variable "style" of a type deduced by "auto". Set its value to sf::Style::Fullscreen
 	// if this object's isFullscreen is true, and to sf::Style::Default if isFullscreen is false.
 	auto style = sf::Style::Default;
+ 
 	if (isFullscreen) {
 		style = sf::Style::Fullscreen;
 	}
@@ -52,6 +55,9 @@ void Window::create()
 
 	// Create an sf::VideoMode object passing two parameters to its constructor: windowSize.x and windowSize.y.
 	//   -> bonus: do this using "direct brace initialization" 
+
+	// <FEEDBACK> You don't really need the () enclosing the {}. Just: videoMode{ windowSize.x, windowSize.y } 
+	// is a perfectly valid initialization.
 	sf::VideoMode videoMode({ windowSize.x, windowSize.y });
 
 	//Call the function create() in sf::RenderWindow window, passing as parameters in this order: video mode, window title and style.
